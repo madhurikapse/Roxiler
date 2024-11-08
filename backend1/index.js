@@ -22,6 +22,10 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Hello Roxiler Systems!");
 });
+app.get("/", (req, res) => {
+  res.send("<img src='/img/myimag.png' alt='My Image' />");
+});
+
 
 const transactionRoutes = require("./routes/transactionRoutes");
 app.use("/", transactionRoutes);

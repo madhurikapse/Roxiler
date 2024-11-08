@@ -32,7 +32,7 @@ const MonthAndSearch = ({
           onChange={onSearchChange}
           placeholder="Search transactions..."
         />
-        <button className=" bg-red-500 rounded-xl p-3" onClick={onClear}>
+        <button className=" bg-red-300 rounded-xl p-3" onClick={onClear}>
           Clear
         </button>
       </div>

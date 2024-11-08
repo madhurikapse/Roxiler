@@ -103,6 +103,7 @@ const App = () => {
       <Statistics selectedMonth={selectedMonth} />
       <hr className="border border-b-green-500"></hr>
       <BarChart selectedMonth={selectedMonth} />
+      <img src="/images/myimage.png" alt="My Image" />
     </div>
   );
 };

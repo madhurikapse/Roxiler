@@ -78,15 +78,18 @@ const TransactionTable = ({
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
                         {transaction.price}
                       </td>
+                      
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
                         NA
                       </td>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
                         YES
                       </td>
+                      
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                        Not Available
+                     <img src={transaction.image} alt="Transaction" className="max-w-[100px] max-h-[100px] object-cover" />
                       </td>
+
                     </tr>
                   ))}
                 </tbody>
