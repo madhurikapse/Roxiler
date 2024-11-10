@@ -12,7 +12,7 @@ app.use(cors());
 mongoose
   .connect(mongoUrl)
   .then(() => {
-    console.log(`Connected to ${mongoUrl}`);
+    console.log("DBConnected");
   })
   .catch((err) => {
     console.log(err);
@@ -22,15 +22,11 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Hello Roxiler Systems!");
 });
-app.get("/", (req, res) => {
-  res.send("<img src='/img/transaction.img' alt='My Image' />");
-});
-
 
 const transactionRoutes = require("./routes/transactionRoutes");
 app.use("/", transactionRoutes);
 
 // Starting the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log('API Info : http://localhost:8000/api/')
 });

@@ -23,30 +23,33 @@ const BarChart = ({ selectedMonth }) => {
     const fetchBarChartData = async () => {
       try {
         const response = await fetch(
-          `https://roxiler-assignment-backend.vercel.app/api/barChart?month=${selectedMonth}`
+          // https://roxiler-assignment-backend.vercel.app/api/barChart?month=${selectedMonth}
+          'http://localhost:8000/api/barChart?month=${selectedMonth}'
         );
         const data = await response.json();
-
+  
         // Assuming data is an array of objects with 'range' and 'count' properties
         const labels = data.map((item) => item.range);
         const counts = data.map((item) => item.count);
-
-        setBarChartData({
+  
+        setBarChartData((prevData) => ({
+          ...prevData,
           labels,
           datasets: [
             {
-              ...barChartData.datasets[0],
+              ...prevData.datasets[0],
               data: counts,
             },
           ],
-        });
+        }));
       } catch (error) {
         console.error("Error fetching bar chart data:", error);
       }
     };
-
+  
     fetchBarChartData();
-  }, [selectedMonth, barChartData]);
+  }, [selectedMonth]);
+  
 
   return (
     <div className="m-5">
@@ -86,4 +89,4 @@ const BarChart = ({ selectedMonth }) => {
   );
 };
 
-export default BarChart;
+export default BarChart;

@@ -12,10 +12,9 @@ const Statistics = ({ selectedMonth }) => {
     const fetchStatistics = async () => {
       try {
         const response = await fetch(
-          `https://s3.amazonaws.com/roxiler.com/product_transaction.json`
+          // `https://roxiler-assignment-backend.vercel.app/api/statistics?month=${selectedMonth}`
+          `http://localhost:8000/api/statistics?month=${selectedMonth}`
         );
-        //const response = await Api.post("/auth/login", { userData });
-        // //'localhost:3000/api/statistics?month=March'
         const data = await response.json();
         setStatistics(data);
       } catch (error) {

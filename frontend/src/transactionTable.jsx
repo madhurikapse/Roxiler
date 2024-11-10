@@ -12,12 +12,12 @@ const TransactionTable = ({
 }) => {
   return (
     <div className="m-5">
-      <div classname=" overflow-x-auto flex flex-col container max-w-max bg-[#f8df8c] rounded-xl my-10">
-        <div classname=" sm:-mx-6 lg:-mx-8">
-          <div classname="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-            <div classname="overflow-hidden">
-              <table classname="min-w-full text-center">
-                <thead classname="border-b">
+      <div className=" overflow-x-auto flex flex-col container max-w-max bg-[#f8df8c] rounded-xl my-10">
+        <div className=" sm:-mx-6 lg:-mx-8">
+          <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <table className="min-w-full text-center">
+                <thead className="border-b">
                   <tr>
                     <th
                       scope="col"
@@ -67,27 +67,27 @@ const TransactionTable = ({
                   {transactions.map((transaction, index) => (
                     <tr className="border-b" key={index}>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                        {transaction._id}
+                        {index + 1}
                       </td>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-normal">
-                        {transaction.title}
+                        {transaction?.title}
                       </td>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-normal">
-                        {transaction.description}
+                        {transaction?.description}
                       </td>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                        {transaction.price}
+                        {transaction?.price}
                       </td>
                       
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                        NA
+                        {transaction?.category}
                       </td>
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                        YES
+                        {transaction?.sold ? 'Sold' : 'Not Sold'}
                       </td>
                       
                       <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                     <img src={transaction.image} alt="Transaction" className="max-w-[100px] max-h-[100px] object-cover" />
+                     <img src={transaction?.image} alt="Transaction" className="max-w-[100px] max-h-[100px] object-cover" />
                       </td>
                     </tr>
                   ))}

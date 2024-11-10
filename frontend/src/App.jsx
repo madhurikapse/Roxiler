@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import axios from "axios";
 import "./App.css";
 import MonthAndSearch from "./monthAndSearch";
@@ -14,20 +14,16 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Fetch transactions based on selected month and search text
-  const fetchTransactions = async () => {
+  const fetchTransactions = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://s3.amazonaws.com/roxiler.com/product_transaction.json`,
-       
+        `http://localhost:8000/api/transactions?month=${selectedMonth}&page=${currentPage}&perPage=${selectedPerPage}&search=${searchText}`
       );
-
-      console.log(response.data);
-
       setTransactions(response.data.transactions);
     } catch (error) {
       console.error("Error fetching transactions:", error);
     }
-  };
+  }, [selectedMonth, currentPage, selectedPerPage, searchText]);
 
   // Handle month change
   const handleMonthChange = (e) => {
@@ -60,10 +56,9 @@ const App = () => {
     }
   };
 
-  // Fetch transactions when component mounts or dependencies change
   useEffect(() => {
     fetchTransactions();
-  }, [selectedMonth, searchText, currentPage, selectedPerPage]);
+  }, [fetchTransactions]);
 
   return (
     <div className="bg-[#edf6f6]">

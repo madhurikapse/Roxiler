@@ -8,6 +8,7 @@ const initializeDatabase = async (req, res) => {
       "https://s3.amazonaws.com/roxiler.com/product_transaction.json"
     );
     const transactions = response.data;
+    await Transaction.deleteMany();
     await Transaction.insertMany(transactions);
     res.json({ message: "Database initialized successfully" });
   } catch (error) {
