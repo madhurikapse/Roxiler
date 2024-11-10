@@ -14,6 +14,7 @@ const Statistics = ({ selectedMonth }) => {
         const response = await fetch(
           `https://roxiler-assignment-backend.vercel.app/api/statistics?month=${selectedMonth}`
         );
+        //const response = await Api.post("/auth/login", { userData });
         const data = await response.json();
         setStatistics(data);
       } catch (error) {
