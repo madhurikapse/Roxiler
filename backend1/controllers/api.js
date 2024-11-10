@@ -16,6 +16,8 @@ const initializeDatabase = async (req, res) => {
   }
 };
 
+
+
 // Function to list all transactions with search and pagination matching whole words
 const listTransactions = async (req, res) => {
   try {

@@ -17,18 +17,11 @@ const App = () => {
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        `https://roxiler-assignment-backend.vercel.app/api/transactions`,
-        {
-          params: {
-            month: selectedMonth,
-            search: searchText,
-            page: currentPage,
-            perPage: selectedPerPage,
-          },
-        }
+        `https://s3.amazonaws.com/roxiler.com/product_transaction.json`,
+       
       );
 
-      // console.log(response.data.transactions);
+      console.log(response.data);
 
       setTransactions(response.data.transactions);
     } catch (error) {
@@ -103,7 +96,6 @@ const App = () => {
       <Statistics selectedMonth={selectedMonth} />
       <hr className="border border-b-green-500"></hr>
       <BarChart selectedMonth={selectedMonth} />
-      <img src="/images/myimage.png" alt="My Image" />
     </div>
   );
 };
